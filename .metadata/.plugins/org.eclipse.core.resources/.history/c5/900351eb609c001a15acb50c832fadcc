@@ -89,7 +89,6 @@ public class Main {
 		Transaction t = jedis.multi();
 		t.sadd(friendsPrefix + userOneId, userTwoId);
 		t.sadd(friendsPrefix + userTwoId, userOneId);
-		System.out.println(t.get(friendsPrefix + userOneId));
 		t.exec();	
 	}
 
