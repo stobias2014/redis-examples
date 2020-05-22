@@ -11,7 +11,6 @@ public class Main {
 		Jedis jedis = new Jedis();
 		
 		// Redis Strings
-		
 		jedis.set("events/city/rome", "32, 15, 223, 42");
 		//has an expiration
 		String cachedResponse = jedis.get("events/city/rome");
@@ -30,11 +29,7 @@ public class Main {
 		jedis.sadd("nicknames", "nickname#2");
 		jedis.sadd("nicknames", "nickname#1");
 		
-		Set<String> nicknames = jedis.smembers("nicknames");
-		nicknames.forEach(System.out::println);
-		System.out.println(jedis.sismember("nicknames", "nickname#1"));
-		
-		
+		Set<String> nicknames = 
 		
 		
 	}
