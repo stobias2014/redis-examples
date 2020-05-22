@@ -1,5 +1,6 @@
 package com.tobias.saul.app;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -52,6 +53,29 @@ public class Main {
 		fields.forEach((key, value) -> System.out.println("key: " + key + ", value: " + value));
 		
 		System.out.println("\n--------------------\n");
+		
+		// Redis Sorted Sets
+		System.out.println("----Redis Sorted Sets----\n");
+		Map<String, Double> scores = new HashMap<>();
+		
+		scores.put("PlayerOne", 3245.00);
+		scores.put("PlayerTwo", 2312.00);
+		scores.put("PlayerThree", 6578.00);
+		
+		scores.forEach((player, score) -> System.out.println(player + " " + score));
+		
+		scores.entrySet().forEach(playerScore -> {
+			jedis.zadd("ranking", playerScore.getValue(), playerScore.getKey());
+		});
+		
+		// retrieve score of specified player
+		System.out.println("PlayerOne score: " + jedis.zscore("ranking", "PlayerOne"));
+		
+		String player = jedis.zrevrange("ranking", 0, 1).iterator().next();
+		System.out.println("Player with highest score: " + player);
+		long rank = jedis.zrank("ranking", "PlayerOne");
+		System.out.println("PlayerOne ranking: " + rank);
+		
 		
 	}
 
