@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+/Volumes/Saul Tobias HD/eclipse-workspace-hd/redis-examples/.metadata/.plugins/org.eclipse.jdt.core
