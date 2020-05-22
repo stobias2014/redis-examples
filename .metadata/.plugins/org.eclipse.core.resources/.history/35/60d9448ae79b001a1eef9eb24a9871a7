@@ -19,9 +19,7 @@ public class Main {
 		jedis.lpush("queue#tasks", "firstTask");
 		jedis.lpush("queue#tasks", "secondTask");
 		
-		System.out.println(jedis.rpop("queue#tasks"));
-		
-		
+		System.out.println();
 		
 	}
 

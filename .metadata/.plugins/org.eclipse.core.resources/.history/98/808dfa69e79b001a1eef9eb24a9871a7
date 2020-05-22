@@ -16,12 +16,7 @@ public class Main {
 		System.out.println(cachedResponse);
 		
 		// Redis Lists - list of strings
-		jedis.lpush("queue#tasks", "firstTask");
-		jedis.lpush("queue#tasks", "secondTask");
-		
-		System.out.println(jedis.rpop("queue#tasks"));
-		
-		
+		jedis.lpush("queue#tasks", "");
 		
 	}
 
